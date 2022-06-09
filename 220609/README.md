@@ -65,7 +65,7 @@ npx tsc --build
 -   outDir : 빌드한 파일을 담을 디렉토리 지정.
 -   paths : baseUrl을 기준으로 절대경로를 설정해서 경로에 별칭 사용 가능.
     -   @core/ 라는 별칭은 /src 디렉토리 안에 있는 /core 디렉토리 안의 모든 파일
--   esModuleInterop : export default 문법 사용 가능
+-   esModuleInterop : CommonJS 방식으로 내보낸 모듈을 ES 모듈 방식의 import로 가져올 수 있게 해준다.
 
 ```
 ┌ [프로젝트 디렉토리]
