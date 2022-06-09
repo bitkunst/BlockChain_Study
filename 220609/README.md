@@ -16,7 +16,7 @@ JavaScript의 경우 브라우저 혹은 Node.js 환경에서 해석된다.
 <br>
 JavaScript의 경우, 대입연산자를 보고 변수의 타입을 유추한다.
 <br>
-TypeScript는 변수 뒤에 타입을 지정해 놓고 사용하게 된다.
+TypeScript는 변수 뒤에 타입을 지정해 놓고 사용해야 한다.
 <br>
 <br>
 
@@ -40,7 +40,7 @@ TypeScript에도 버전이라는 것이 존재한다.
 <br>
 tsconfig.json 파일을 통해 TypeScript의 설정을 조작할 수 있다.
 <br>
-React에서의 webpack.config.json 과 같이 설정할 수 있는 파일.
+React에서의 webpack.config.json 과 같이 설정값을 조작할 수 있는 파일이다.
 
 ```json
 {
@@ -65,6 +65,7 @@ npx tsc --build
 -   outDir : 빌드한 파일을 담을 디렉토리 지정.
 -   paths : baseUrl을 기준으로 절대경로를 설정해서 경로에 별칭 사용 가능.
     -   @core/ 라는 별칭은 /src 디렉토리 안에 있는 /core 디렉토리 안의 모든 파일
+-   esModuleInterop : export default 문법 사용 가능
 
 ```
 ┌ [프로젝트 디렉토리]
@@ -157,11 +158,30 @@ npm i --save-dev @types/crypto-js
 
 # TypeScript interface
 
-객체 안에 들어갈 속성들의 타입을 지정해 주는 방식.
+interface를 사용해서 객체 안에 들어갈 속성들의 타입을 지정해 줄 수 있다.
 <br>
 interface에 맞게 객체 형태를 만들어 줘야 한다.
 <br>
-interface : 객체의 타입을 지정하는 방식
+interface : TypeScript에서 객체의 타입을 지정하는 방식
+<br>
+<br>
+
+# TypeScript generic
+
+어떠한 함수를 사용할 때 인자값으로 여러가지 데이터타입이 오는 경우가 있다.
+<br>
+이때 제네릭을 사용해서 타입을 지정해가면서 사용할 수 있다.
+<br>
+제네릭 : 타입을 변수로 뺐다고 생각하면 된다.
+
+```typescript
+function log<T>(n: T) {
+    // code block
+    console.log('result : ', n);
+}
+```
+
+<br>
 
 # 테스트 코드
 
@@ -198,6 +218,7 @@ module.exports = {
 ```
 
 **jest.config.ts**
+
 jest 프레임워크를 어떻게 사용할 것인지에 대한 내용.
 <br>
 testMatch : 테스트 코드를 실행할 파일명
